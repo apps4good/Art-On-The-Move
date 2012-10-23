@@ -90,30 +90,21 @@
 			    }
 			});
 	</script>
-
       <div class="row">
         <?php
-        		$row_count = 1;
-
-        		foreach($items as $item) {
-        			if ($row_count == 1) {
-        				echo '<div class="span4">';
-        			}
-        	?>
-		          <h4><?php echo $item->ap_title; ?></h4>
-		          <p>
-		          <a href="data/art_pics/<?php echo $item->ap_url; ?>"
-		          	title="<?php echo $item->ap_title; ?>" rel="lightbox[roadtrip]">
-		          	<img src="data/art_pics/<?php echo $item->ap_url; ?>" />
-		          	</a>
-		          </p>
-		          <p>
-		          <a class="btn" href="data/art_pics/<?php echo $item->ap_url; ?>"
-		          	title="<?php echo $item->ap_title; ?>" rel="lightbox[roadtrip]">
-			          View details &raquo;
-		          </a></p>
+        	$row_count = 1;
+        	foreach($items as $item) {
+        		if ($row_count == 1) {
+        			echo '<div class="span3">';
+        		}
+        ?>
+		        <?php /* echo $item->ap_title; */ ?>
+		        <p><a href="<?php echo $item->ap_url_sample; ?>" title="<?php echo $item->ap_title; ?>" rel="lightbox[roadtrip]">
+				<img src="<?php echo $item->ap_url_sample; ?>" /></a></p>
+		        <p><a class="btn" href="<?php echo $item->ap_url_sample; ?>" title="<?php echo $item->ap_title; ?>" rel="lightbox[roadtrip]">
+			    View details &raquo; </a></p>
      		<?php
-     				if($row_count == 2 || $item == $items[(count($items) - 1)]) {
+     				if($row_count == 4 || $item == $items[(count($items) - 1)]) {
      					echo '</div>';
      					$row_count = 0;     					
      				}
