@@ -62,11 +62,9 @@
     <div class="container">
 
       <!-- Main hero unit for a primary marketing message or call to action -->
-      <div class="hero-unit">
-        <h1>Zambiart!</h1>
-        <br/>
-        <p>Are you a Zambian artist? Sign up and upload photos to show case your work.<br/>If you are an art collector or art lover continue browsing and enjoy Zamnian Art at its best.</p>
-        <br/>
+      <div class="hero-unit" style="background-image:url('assets/img/header.png'); background-size:cover; background-position:center 45px; background-repeat:no-repeat; background-color:#fff;">
+        <p>Are you a Zambian artist? Sign up and upload photos to show case your work.<br/>Art collectors & art lovers continue browsing and enjoy Zamnian Art at its best.</p>
+        <br/><br/><br/><br/><br/><br/><br/><br/><br/>
         <p><a class="btn btn-primary btn-large">Sign Up! &raquo;</a></p>
       </div>
 		
