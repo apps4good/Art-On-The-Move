@@ -26,8 +26,8 @@
 		<label class="control-label" for="region">Region</label>
 		<div class="controls">
 		<select name="type" id="region">
-			<option value="1">an Artist</option>
-			<option value="2">an Art Lover</option>
+			<option value="1">Lusaka</option>
+			<option value="2">Copperbelt</option>
 		</select>
 		</div>
 	</div>
@@ -37,6 +37,7 @@
 		<select name="type" id="region">
 			<option value="1">Paintings/Drawings</option>
 			<option value="2">Crafts</option>
+			<option value="3">Sculptures</option>
 		</select>
 		</div>
 	</div>

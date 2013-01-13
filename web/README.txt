@@ -1,3 +1,5 @@
+Note: Create a folder called data. This will be the user upload directory
+
 // Assuming, you are using virtual host. Create .htaccess file in your doc root and paste the following
 
 RewriteEngine on

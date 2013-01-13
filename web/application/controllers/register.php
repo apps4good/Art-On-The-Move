@@ -34,8 +34,8 @@ class Register extends MY_Controller {
 		if ($this->form_validation->run() == FALSE) {
 			$this->page_title = "Register | ".$this->config->item('site_name');
 
-//			$view = $this->load->view('member/artist/get_started/create_profile', '', TRUE);
-			$view = $this->load->view('register', '', TRUE);
+			$view = $this->load->view('member/artist/get_started/create_profile', '', TRUE);
+//			$view = $this->load->view('register', '', TRUE);
 			$this->load_1col_view($view);
 		} else {
 			$type = $this->input->post('userType');
