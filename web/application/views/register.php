@@ -26,7 +26,7 @@
 	<div class="control-group">
 		<label class="control-label" for="userType">I am</label>
 		<div class="controls">
-		<select name="type" id="userType">
+		<select name="userType" id="userType">
 			<option value="1">an Artist</option>
 			<option value="2">an Art Lover</option>
 		</select>

@@ -6,30 +6,27 @@ class Login extends MY_Controller {
 		parent::__construct();
 		$this->header_search_present = FALSE;
 		$this->header_page_title = "Login";
+		$this->load->model('login_model');
 	}
 
 	public function index()
 	{
-		$config = array(
-			array(
-				'field' => 'login_id',
-				'rules' => 'required|trim'
-			),
-			array(
-				'field' => 'password',
-				'rules' => 'trim|min_length[8]|max_length[32]|required|md5'
-			)
-		);
-		
-		$this->form_validation->set_rules($config);
-		
-		if ($this->form_validation->run() == FALSE) {
+		if ($this->form_validation->run('login') == FALSE) {
 			$this->page_title = "Login | ".$this->config->item('site_name');
 
 			$view = $this->load->view('login', '', TRUE);
 			$this->load_1col_view($view);
 		} else {
+			$this->login_model->loginId = $this->input->post('email');
+			$this->login_model->password = $this->input->post('password');
 			
+			$loggedIn = $this->login_model->login();
+			
+			if($loggedIn) {
+				redirect('welcome');
+			} else {
+				redirect('login');
+			}
 		}
 	}
 }

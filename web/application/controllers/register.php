@@ -11,31 +11,10 @@ class Register extends MY_Controller {
 
 	public function index()
 	{
-		$config = array(
-			array(
-				'field' => 'name',
-				'label' => 'Full Name',
-				'rules' => 'required|trim'
-			),
-			array(
-				'field' => 'email',
-				'label' => 'Email',
-				'rules' => 'required|trim'
-			),
-			array(
-				'field' => 'password',
-				'label' => 'Password',
-				'rules' => 'trim|min_length[8]|max_length[32]|required|md5'
-			)
-		);
-		
-		$this->form_validation->set_rules($config);
-		
-		if ($this->form_validation->run() == FALSE) {
+		if ($this->form_validation->run('register') == FALSE) {
 			$this->page_title = "Register | ".$this->config->item('site_name');
 
-			$view = $this->load->view('member/artist/get_started/create_profile', '', TRUE);
-//			$view = $this->load->view('register', '', TRUE);
+			$view = $this->load->view('register', '', TRUE);
 			$this->load_1col_view($view);
 		} else {
 			$type = $this->input->post('userType');
@@ -48,7 +27,7 @@ class Register extends MY_Controller {
 			if ($is_created) {
 				if($type == 1) {
 					// Redirect to Artist profile creation
-					// redirect('artist/get_started/create_profile');
+					redirect('artist/get_started');
 				} else {
 					// Else just send user to home page
 					redirect('welcome');

@@ -39,6 +39,14 @@ class Artpiece_model extends CI_Model {
 		
 		return $qry->result();
 	}
+	
+	function get_tags() {
+		$this->db->select('tag_id AS id, tag AS name', FALSE);
+		$this->db->like('tag', $this->input->get('q'), 'after');
+		$qry = $this->db->get('art_tag');
+		
+		return $qry->result_array();
+	}
 }
 
 /* End of file artpiece_model.php */
