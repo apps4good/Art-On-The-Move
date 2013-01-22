@@ -1,5 +1,11 @@
 <ul class="nav pull-right">
-	<li class="active"><a href="#">Recently Added</a></li>
-	<li><a href="#">Top Rated</a></li>
-	<li><a href="#">Following</a></li>
+	<li class="active">
+		<a href="#">New</a>
+	</li>
+	<li>
+		<a href="#">Popular</a>
+	</li>
+	<li>
+		<a href="#">By Favourite Artists</a>
+	</li>
 </ul>

@@ -57,7 +57,6 @@ class Register_model extends CI_Model {
 		$data['city'] = $this->input->post('city');
 		$data['region'] = $this->input->post('region');
 		$data['about'] = $this->input->post('about');
-		$data['category'] = $this->input->post('category');
 		
 		$this->db->where('uid', $this->uid);
 		$qry = $this->db->update('artist_profile', $data);
@@ -87,6 +86,18 @@ class Register_model extends CI_Model {
 					}
 				}
 			}
+			
+			$categs = $this->input->post('category');
+			if(!empty($categs)) {
+				foreach ($categs as $categ) {
+					if(!$this->_already_categorized($categ)) {
+						$categ_data['uid'] = $this->uid;
+						$categ_data['categ_id'] = $categ;
+						
+						$this->db->insert('artist_category_map', $categ_data);
+					}
+				}
+			}
 			return TRUE;
 		} else {
 			return FALSE;
@@ -96,6 +107,11 @@ class Register_model extends CI_Model {
 	private function _already_tagged($tagId)
 	{
 		$qry = $this->db->get_where('artist_tagmap', array('uid' => $this->uid, 'tag_id' => $tagId));
+		return $qry->num_rows() > 0;
+	}
+	
+	private function _already_categorized($categId) {
+		$qry = $this->db->get_where('artist_category_map', array('uid' => $this->uid, 'categ_id' => $categId));
 		return $qry->num_rows() > 0;
 	}
 	

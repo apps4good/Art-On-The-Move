@@ -17,11 +17,17 @@ class Profile extends MY_Controller {
 		
 		$this->header_page_title = $user->fullname;
 		$this->header_search_present = FALSE;
+		$this->page_title = $user->fullname." | ".$this->config->item('site_name');
 
+		$data = array(
+			'user' => $user,
+			'categs' => $this->artist_model->get_artist_categorymap(),
+			'tags' => $this->artist_model->get_artist_tagmap()
+		);
 		
-		$data['user'] = $user;
+		$navdata['user'] = $user;
 
-		$navi = $this->load->view('member/artist/profile/navi', $data, TRUE);
+		$navi = $this->load->view('member/artist/profile/navi', $navdata, TRUE);
 				
 		$content = $this->load->view('member/artist/profile/profile_info', $data, TRUE);
 		

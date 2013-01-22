@@ -4,6 +4,13 @@
 </button>
 <ul class="dropdown-menu">
 	<li>
+		<a href="#">Add new art</a>
+	</li>
+	<li>
+		<a href="/artist/profile/?id=<?php echo $this->sess_uid; ?>">My Profile</a>
+	</li>
+	<li class="divider"></li>
+	<li>
 		<a href="/settings">Settings</a>
 	</li>
 	<li>

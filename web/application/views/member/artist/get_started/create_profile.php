@@ -1,3 +1,13 @@
+<script type="text/javascript" >
+	$(document).ready(function() {
+		$('#category').popover({
+			trigger: 'focus',
+			title: 'Categories',
+			content: "Hold down the 'ctrl' button to select multiple categories"
+		});
+	});
+</script>
+
 <div class="row-fluid">
 <form class="form-horizontal" action="/artist/get_started" method="post">
 <legend>Create Profile</legend>
@@ -37,7 +47,7 @@
 	<div class="control-group">
 		<label class="control-label" for="category">Which categories do you fall under?</label>
 		<div class="controls">
-		<select name="category" id="category">
+		<select name="category[]" id="category" multiple="multiple" >
 			<?php
 				foreach ($categories as $categ) {
 					echo '<option value="'.$categ->categ_id.'">'.$categ->categ_name.'</option>';
