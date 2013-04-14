@@ -60,6 +60,19 @@
 				'label' => 'Confirm New Password',
 				'rules' => 'trim'
 			)
+		),
+		
+		'artist_basic_info' =>array(
+			array(
+				'field' => 'gender',
+				'label' => 'Gender',
+				'rules' => 'trim'
+			),
+			array(
+				'field' => 'about',
+				'label' => 'About',
+				'rules' => 'trim|required'
+			)
 		)
 	);
 ?>

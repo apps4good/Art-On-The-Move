@@ -13,6 +13,7 @@ class Artist_model extends CI_Model {
 
 	public function __construct() {
 		parent::__construct();
+		$this->uid = $this->session->userdata('uid');
 	}
 	
 	function get_profile() {
@@ -39,6 +40,22 @@ class Artist_model extends CI_Model {
 		$qry = $this->db->get('artist_category_map');
 		
 		return $qry->result();
+	}
+	
+	function update_basic_info()
+	{
+		$data = array();
+		$data['gender'] = $this->input->post('gender');
+		$data['about'] = $this->input->post('about');
+		
+		$this->db->where('uid', $this->uid);
+		$qry = $this->db->update('artist_profile', $data);
+		
+		if($qry) {
+			return true;
+		} else {
+			return false;
+		}
 	}
 }
 

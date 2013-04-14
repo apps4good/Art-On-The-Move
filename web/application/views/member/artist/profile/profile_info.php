@@ -1,10 +1,19 @@
 <script type="text/javascript">
 	$(document).ready(function() {
-		$('select#edit-info, input#edit-info').hide();
+		$('.edit-info, #hide-edit').hide();
 
 		$('#edit-basic-info').click(function() {
-			$('span#user-info').toggle();
-			$('select#edit-info, input#edit-info').toggle();
+			$('span.user-info').hide();
+			$('.edit-info').show();
+			$(this).hide();
+			$('#hide-edit').show();
+		});
+
+		$('#hide-edit').click(function() {
+			$('span.user-info').show();
+			$('.edit-info').hide();
+			$(this).hide();
+			$('#edit-basic-info').show();
 		});
 	});
 </script>
@@ -12,36 +21,36 @@
 <div class="page-header">
 	<?php
 	if ($this -> sess_uid == $user -> uid) {
-		echo '<h4 class="pull-right" id="edit-basic-info"><a href="#" >edit</a></h4>';
+		echo '<h4 class="pull-right" id="edit-basic-info"><a href="#" >Edit</a></h4>';
+		echo '<h4 class="pull-right" id="hide-edit"><a href="#" >Done Editing</a></h4>';
+		
 	}
 	?>
 	<h2>Basic Info</h2>
 </div>
-
-<dl class="dl-horizontal">
-	<dt>Name</dt>
-	<dd>
-		<span id="user-info"><?php echo $user -> fullname; ?></span>
-		<input type="text" id="edit-info" name="name" value="<?php echo $user->fullname; ?>" />
-	</dd>
-</dl>
-
+<form action="/artist/profile/edit/basic" id="basic-info-form" method="post">
 <dl class="dl-horizontal">
 	<dt>Gender</dt>
 	<dd>
-		<span id="user-info"><?php echo $user -> gender; ?></span>
+		<span class="user-info"><?php echo $user -> gender; ?></span>
 		<?php
 			$options = array('Male' => 'Male', 'Female' => 'Female');
-			echo form_dropdown('gender', $options, $user->gender, 'id=edit-info');
+			echo form_dropdown('gender', $options, $user->gender, 'class=edit-info');
 		?>
 	</dd>
 </dl>
 
 <dl class="dl-horizontal">
 	<dt>About me</dt>
-	<dd><?php echo $user -> about; ?></dd>
+	<dd>
+		<span class="user-info"><?php echo $user -> about; ?></span>
+		<textarea name="about" class="edit-info"><?php echo $user->about; ?></textarea>
+	</dd>
+	<dd>
+		<input type="submit" name="submit" value="Save" class="btn edit-info" />
+	</dd>
 </dl>
-
+</form>
 </section>
 
 <section>

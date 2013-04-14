@@ -33,6 +33,17 @@ class Profile extends MY_Controller {
 		
 		$this->load_view($content, $navi);
 	}
+	
+	public function edit($form_type = NULL)
+	{
+		if($form_type == 'basic') {
+			if($this->form_validation->run('artist_basic_info') == TRUE) {
+				$this->artist_model->update_basic_info();
+			}
+		}
+		
+		redirect(base_url().'artist/profile/?id='.$this->sess_uid);
+	}
 }
 
 /* End of file welcome.php */
