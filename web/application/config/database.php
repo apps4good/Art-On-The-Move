@@ -49,8 +49,8 @@ $active_group = 'default';
 $active_record = TRUE;
 
 $db['default']['hostname'] = 'localhost';
-$db['default']['username'] = 'art_user';
-$db['default']['password'] = '';
+$db['default']['username'] = 'test';
+$db['default']['password'] = 'test';
 $db['default']['database'] = 'art_on_the_move';
 $db['default']['dbdriver'] = 'mysql';
 $db['default']['dbprefix'] = '';

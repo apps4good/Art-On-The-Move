@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 3.4.10.1deb1
+-- version 3.4.11.1deb1
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Jan 13, 2013 at 11:46 PM
--- Server version: 5.5.28
--- PHP Version: 5.3.10-1ubuntu3.4
+-- Generation Time: Apr 20, 2013 at 05:24 PM
+-- Server version: 5.5.29
+-- PHP Version: 5.4.6-1ubuntu1.2
 
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -23,6 +23,32 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `artist_category_map`
+--
+
+CREATE TABLE IF NOT EXISTS `artist_category_map` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `categ_id` int(11) NOT NULL,
+  `uid` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `artist_favorites`
+--
+
+CREATE TABLE IF NOT EXISTS `artist_favorites` (
+  `fid` int(11) NOT NULL AUTO_INCREMENT,
+  `artist_id` int(11) NOT NULL,
+  `uid` int(11) NOT NULL,
+  PRIMARY KEY (`fid`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `artist_profile`
 --
 
@@ -32,7 +58,7 @@ CREATE TABLE IF NOT EXISTS `artist_profile` (
   `street_addr` varchar(128) NOT NULL,
   `city` varchar(32) NOT NULL,
   `region` int(11) NOT NULL,
-  `about` text NOT NULL,
+  `about` text,
   PRIMARY KEY (`uid`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
@@ -47,7 +73,7 @@ CREATE TABLE IF NOT EXISTS `artist_tagmap` (
   `uid` int(11) NOT NULL,
   `tag_id` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
 
 -- --------------------------------------------------------
 
@@ -59,7 +85,20 @@ CREATE TABLE IF NOT EXISTS `art_category` (
   `categ_id` int(11) NOT NULL AUTO_INCREMENT,
   `categ_name` varchar(32) NOT NULL,
   PRIMARY KEY (`categ_id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `art_favorites`
+--
+
+CREATE TABLE IF NOT EXISTS `art_favorites` (
+  `fid` int(11) NOT NULL AUTO_INCREMENT,
+  `ap_id` int(11) NOT NULL,
+  `uid` int(11) NOT NULL,
+  PRIMARY KEY (`fid`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -89,7 +128,7 @@ CREATE TABLE IF NOT EXISTS `art_tag` (
   `tag_id` int(11) NOT NULL AUTO_INCREMENT,
   `tag` varchar(32) NOT NULL,
   PRIMARY KEY (`tag_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
 
 -- --------------------------------------------------------
 
@@ -132,7 +171,7 @@ CREATE TABLE IF NOT EXISTS `user` (
   `status` int(11) NOT NULL,
   `user_type` int(11) NOT NULL DEFAULT '2' COMMENT '1 = Artist, 2 = Art Lover',
   PRIMARY KEY (`uid`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
