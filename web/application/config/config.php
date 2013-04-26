@@ -14,7 +14,7 @@
 | path to your installation.
 |
 */
-$config['base_url']	= 'http://artonthemove.com/';
+$config['base_url']	= 'http://localhost/Art-On-The-Move/web/';
 
 /*
 |--------------------------------------------------------------------------

@@ -1,5 +1,5 @@
 <div class="row">
-<form class="form-horizontal" action="/register" method="POST">
+<form class="form-horizontal" action="<?php echo site_url('register'); ?>" method="POST">
 	<legend>Register</legend>
 	<div style="margin: auto;">
 	<div class="control-group">

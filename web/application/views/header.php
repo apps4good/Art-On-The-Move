@@ -1,4 +1,4 @@
-<a href="/"><img src="/assets/img/logo.png" id="logo" /></a>
+<a href="<?php echo base_url(); ?>"><img src="<?php echo base_url('assets/img/logo.png'); ?>" id="logo" /></a>
 <div class="btn-group pull-right" id="header-btns">
 <?php echo $this->header_navi; ?>
 </div>

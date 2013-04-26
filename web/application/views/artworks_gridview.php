@@ -8,9 +8,9 @@ if(count($items) > 0) {
 ?>
 	<div>
 		<div class="fluid_grid_item">
-		<a href="/data/art_pics/<?php echo $item->ap_url; ?>"
+		<a href="<?php echo base_url('data/art_pics'.$item->ap_url); ?>"
 			title="<?php echo $item->ap_title; ?>" rel="lightbox">
-			<img src="/data/art_pics/<?php echo $item->ap_url; ?>" class="img-polaroid" />
+			<img src="<?php echo base_url('data/art_pics/'.$item->ap_url); ?>" class="img-polaroid" />
 		</a>
 		</div>
 	</div>

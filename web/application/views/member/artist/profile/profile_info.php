@@ -28,7 +28,7 @@
 	?>
 	<h2>Basic Info</h2>
 </div>
-<form action="/artist/profile/edit/basic" id="basic-info-form" method="post">
+<form action="<?php echo site_url('artist/profile/edit/basic'); ?>" id="basic-info-form" method="post">
 <dl class="dl-horizontal">
 	<dt>Gender</dt>
 	<dd>

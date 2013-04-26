@@ -7,13 +7,13 @@
 		<a href="#">Add new art</a>
 	</li>
 	<li>
-		<a href="/artist/profile/?id=<?php echo $this->sess_uid; ?>">My Profile</a>
+		<a href="<?php echo site_url('artist/profile/?id='.$this->sess_uid); ?>">My Profile</a>
 	</li>
 	<li class="divider"></li>
 	<li>
-		<a href="/settings">Settings</a>
+		<a href="<?php echo site_url('settings'); ?>">Settings</a>
 	</li>
 	<li>
-		<a href="/logout">Logout</a>
+		<a href="<?php echo site_url('logout'); ?>">Logout</a>
 	</li>
 </ul>

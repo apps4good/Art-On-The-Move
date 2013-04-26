@@ -4,9 +4,9 @@
 </button>
 <ul class="dropdown-menu">
 	<li>
-		<a href="/settings">Settings</a>
+		<a href="<?php echo site_url('settings'); ?>">Settings</a>
 	</li>
 	<li>
-		<a href="/logout">Logout</a>
+		<a href="<?php echo site_url('logout'); ?>">Logout</a>
 	</li>
 </ul>

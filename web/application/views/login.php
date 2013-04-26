@@ -1,5 +1,5 @@
 <div class="row">
-<form class="form-horizontal" action="/login" method="post">
+<form class="form-horizontal" action="<?php echo site_url('login'); ?>" method="post">
 	<legend>Login</legend>
 	<div class="control-group">
 		<label class="control-label" for="inputEmail">Email</label>
